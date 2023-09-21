@@ -1,23 +1,37 @@
-
+// Importere svg fil
+import Home from "../img/home.svg";
+import Search from "../img/search.svg"
+import Notifications from "../img/bell.svg"
+import User from "../img/user.svg"
+import Message from "../img/mail.svg"
 
 export default function Nav(){
     return (
-        <nav>
+    <nav>
+        <div className="links">
+            <div>
+                <img src={Home} alt="home" />
+                <button> Home </button>
+            </div>
+            <div>
+                <img src={Search} alt="" />
+                <button> Explore </button>
+            </div>
+            <div>
+                <img src={Notifications} alt="" />
+                <button> Notifications </button>    
+            </div>
+            <div>
+                <img src={Message} alt="" />
+                <button> Messages </button>
+            </div>
+            <div>
+                <img src={User} alt="" />
+                <button> Profiles </button>
+            </div>
+        </div>
 
-      <div className="links">
-        <img src="img/home.svg" alt="" />
-        <button> Home </button>
-        <button> Explore </button>
-        <button> Notifications </button>
-        <button> Messages </button>
-        <button> Profiles </button>
-      </div>
-
-      <div className="pip-button">
-        <button id="pip" className="hej">
-          <p>Pip</p>
-        </button>
-      </div>
+        <button id="pip" className="pip_knap">pip</button>
     </nav>
     )
 }

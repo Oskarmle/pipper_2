@@ -1,14 +1,15 @@
 // Importere CSS filer
-import "./App.css";
 import "./css/nav.css";
+import "./css/header.css";
 
 // Importeret komponenter
 import Nav from "./components/Nav";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
-      {/* Navigation  */}
+      <Header />
       <Nav />
     </div>
   );
