@@ -1,11 +1,11 @@
+
+
 export default function Nav(){
     return (
         <nav>
-      {/* <div class="logo">
-        <img src="img/bird-logo-white.svg" alt="pipper-logo" />
-      </div> */}
 
       <div className="links">
+        <img src="img/home.svg" alt="" />
         <button> Home </button>
         <button> Explore </button>
         <button> Notifications </button>

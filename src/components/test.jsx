@@ -1,1 +1,0 @@
-// kunne ikke pushe mappen kun

@@ -1,7 +1,9 @@
-import logo from "./logo.svg";
+// Importere CSS filer
 import "./App.css";
-import Nav from "./components/Nav";
 import "./css/nav.css";
+
+// Importeret komponenter
+import Nav from "./components/Nav";
 
 function App() {
   return (
