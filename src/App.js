@@ -7,6 +7,7 @@ import "./css/pip.css";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
 import Feed from "./components/Feed";
+import PipForm from "./components/PipForm";
 
 function App() {
   return (
@@ -16,6 +17,11 @@ function App() {
         <Nav />
         <Feed />
       </div>
+      <div>
+        <PipForm/>
+      </div>
+      
+
     </div>
   );
 }
