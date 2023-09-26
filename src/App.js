@@ -2,6 +2,7 @@
 import "./css/nav.css";
 import "./css/header.css";
 import "./css/pip.css";
+import "./css/pipform.css";
 
 // Importeret komponenter
 import Nav from "./components/Nav";
@@ -18,10 +19,8 @@ function App() {
         <Feed />
       </div>
       <div>
-        <PipForm/>
+        <PipForm />
       </div>
-      
-
     </div>
   );
 }
