@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import pipsDummyData from "../components/Feed"
 import { Pip } from "../entities/pip"
-
+import ReactModal from 'react-modal';
 export default function PipForm (){
     const [content, setContent] = useState('');
     const [username, setUsername] = useState('');
@@ -28,13 +28,21 @@ export default function PipForm (){
 
 
 return (
+
+    <ReactModal>
     <div className="form">
         <label>username</label>
         <input type="text" value={username} onChange={handlePipsUsernameChange}/>
         <label>Pip text</label>
         <input type="text" value={content} onChange={handlePipsContentChange}/>
+
         <button className="pip-button" onClick={handlePipButtonClick}>Post Pip</button>
+        
     </div>
+
+    </ReactModal>
+
+    
 )
 
 };
