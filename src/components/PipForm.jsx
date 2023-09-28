@@ -20,13 +20,16 @@ export default function PipForm ({isModalOpen, setIsModalOpen, setPips, pips}){
     const handlePipButtonClick = () => {
         const newPip = new Pip(content, new Date(), username)
         setPips([...pips, newPip])
+        setIsModalOpen(false)
+        setUsername('');  
+        setContent('');  
     }
 
     // lukker modal
     function handlePipCancelClick (){
         setIsModalOpen(false)
     }
-    
+
 return (
 
     <ReactModal isOpen={isModalOpen} className="modal">
