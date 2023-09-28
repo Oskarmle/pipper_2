@@ -5,7 +5,12 @@ import Notifications from "../img/bell.svg"
 import User from "../img/user.svg"
 import Message from "../img/mail.svg"
 
-export default function Nav(){
+export default function Nav({setIsModalOpen}){
+
+    function handleOpenModal (){
+        setIsModalOpen(true)
+    }
+
     return (
     <nav>
         <div className="links">
@@ -31,7 +36,7 @@ export default function Nav(){
             </div>
         </div>
 
-        <button id="pip" className="pip_knap">pip</button>
+        <button id="pip" className="pip_knap" onClick={handleOpenModal}>pip</button>
     </nav>
     )
 }

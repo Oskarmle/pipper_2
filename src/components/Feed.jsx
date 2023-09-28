@@ -15,7 +15,7 @@ export default function Feed (){
         <main>
             <div className="list">
                 {pipsDummyData.map(pip => {
-                    return  <PipItem key={pip.content} pipItem={Pip}/>
+                    return  <PipItem key={pip.content} pipItem={pip}/>
                 })}
             </div>
         </main>
