@@ -8,7 +8,7 @@ export default function PipItem({pipItem}) {
         <article className="pip">
             <label htmlFor="pipItem.content">{pipItem.content}</label>
             <label htmlFor="pipItem.username">{pipItem.username}</label>
-
+            
         </article>
     )
 }

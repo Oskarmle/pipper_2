@@ -10,20 +10,33 @@ import Header from "./components/Header";
 import Feed from "./components/Feed";
 import PipForm from "./components/PipForm";
 import { useState } from "react";
-// import pipsDummyData from "./components/Feed";
+import { Pip } from "./entities/pip";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const pipsDummyData = [
+    new Pip("et flot pip", new Date(), "Oskar"),
+    new Pip("et flot pip til", new Date(), "Emilie"),
+    new Pip("et flot pip til til", new Date(), "Ida"),
+  ];
+
+  const [pips, setPips] = useState(pipsDummyData);
 
   return (
     <div className="App">
       <Header />
       <div className="container">
         <Nav setIsModalOpen={setIsOpen} />
-        <Feed />
+        <Feed pips={pips} />
       </div>
       <div>
-        <PipForm isModalOpen={isOpen} setIsModalOpen={setIsOpen} />
+        <PipForm
+          isModalOpen={isOpen}
+          setIsModalOpen={setIsOpen}
+          setPips={setPips}
+          pips={pips}
+        />
       </div>
     </div>
   );

@@ -1,14 +1,10 @@
 import React,{useState} from "react";
-import pipsDummyData from "../components/Feed"
 import { Pip } from "../entities/pip"
 import ReactModal from 'react-modal';
 
-export default function PipForm ({isModalOpen, setIsModalOpen}){
+export default function PipForm ({isModalOpen, setIsModalOpen, setPips, pips}){
     const [content, setContent] = useState('');
     const [username, setUsername] = useState('');
-
-    const [pips, setPips] = useState(pipsDummyData);
-
 
     const handlePipsContentChange = (e) => {
         console.log(e.target.value);
@@ -20,20 +16,17 @@ export default function PipForm ({isModalOpen, setIsModalOpen}){
         setUsername(e.target.value)
     }
 
-
     // pipknap funktionalitet
     const handlePipButtonClick = () => {
         const newPip = new Pip(content, new Date(), username)
-
         setPips([...pips, newPip])
     }
-
 
     // lukker modal
     function handlePipCancelClick (){
         setIsModalOpen(false)
     }
-
+    
 return (
 
     <ReactModal isOpen={isModalOpen} className="modal">
@@ -47,8 +40,4 @@ return (
         <button className="pip-button" onClick={handlePipCancelClick}>Cancel</button>
     </div>
     </ReactModal>
-
-    
-)
-
-};
+)};

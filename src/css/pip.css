@@ -7,3 +7,7 @@ main {
   width: 500px;
   background-color: hotpink;
 }
+
+.pip label {
+  background-color: antiquewhite;
+}
