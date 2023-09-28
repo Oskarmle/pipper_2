@@ -16,9 +16,9 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
 
   const pipsDummyData = [
-    new Pip("et flot pip", new Date(), "Oskar"),
-    new Pip("et flot pip til", new Date(), "Emilie"),
-    new Pip("et flot pip til til", new Date(), "Ida"),
+    new Pip("Et flot pip", new Date(), "Oskar"),
+    new Pip("Et flot pip til", new Date(), "Emilie"),
+    new Pip("Et flot pip til til", new Date(), "Ida"),
   ];
 
   const [pips, setPips] = useState(pipsDummyData);

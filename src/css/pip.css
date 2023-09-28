@@ -5,9 +5,26 @@
 
 main {
   width: 500px;
-  background-color: hotpink;
 }
 
-.pip label {
-  background-color: antiquewhite;
+.pip {
+  display: flex;
+  margin-left: 20px;
+  border: 10px;
+  border-bottom: solid 3px grey;
+}
+
+.username,
+.content {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+.username {
+  width: 30%;
+}
+
+.content {
+  justify-self: flex-end;
 }
