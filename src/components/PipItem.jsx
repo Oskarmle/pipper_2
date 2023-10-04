@@ -8,6 +8,7 @@ export default function PipItem({pipItem}) {
         <article className="pip">
             <label className="username" htmlFo="pipItem.username">{pipItem.username}</label>
             <label className="content" htmlFor="pipItem.content">{pipItem.content}</label>
+            <label className="image" htmlFor="pipItem.image">{pipItem.image}</label>
         </article>
     )
 }

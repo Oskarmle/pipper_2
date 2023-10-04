@@ -5,6 +5,8 @@ import ReactModal from 'react-modal';
 export default function PipForm ({isModalOpen, setIsModalOpen, setPips, pips}){
     const [content, setContent] = useState('');
     const [username, setUsername] = useState('');
+    const [touchedUsernamePip, setTouchedUsernamePip] = useState(false);
+    const [touchedContentPip, setTouchedContentPip] = useState(false);
 
     const handlePipsContentChange = (e) => {
         console.log(e.target.value);
@@ -22,24 +24,47 @@ export default function PipForm ({isModalOpen, setIsModalOpen, setPips, pips}){
         setPips([...pips, newPip])
         setIsModalOpen(false)
         setUsername('');  
-        setContent('');  
+        setContent('');
+        setTouchedContentPip(false)
+        setTouchedUsernamePip(false)
     }
 
     // lukker modal
     function handlePipCancelClick (){
         setIsModalOpen(false)
+        setUsername('');
+        setContent('');
+        setTouchedContentPip(false)
+        setTouchedUsernamePip(false)
     }
+
+    let isValid = content.trim() !== '' && username.trim() !== '';
+    let isUsernameValid = username.trim() !== '';
+    let isContentValid = content.trim() !== '';
 
 return (
 
     <ReactModal isOpen={isModalOpen} className="modal">
     <div className="form">
         <label>username</label>
-        <input type="text" value={username} onChange={handlePipsUsernameChange}/>
+        <input type="text" value={username} onChange={handlePipsUsernameChange} onBlur={() => setTouchedUsernamePip(true)} />
+        {!isUsernameValid && touchedUsernamePip &&
+         <div>
+            Username cannot be empty. Please fill out the input field.
+        </div>
+        }
+       
         <label>Pip text</label>
-        <input type="text" value={content} onChange={handlePipsContentChange}/>
+        <input type="text" value={content} onChange={handlePipsContentChange} onBlur={() => setTouchedContentPip(true)}/>
+        {!isContentValid && touchedContentPip &&
+        <div>
+                Content cannot be empty. Please fill out the input field.
+        </div>
+        }
+        {/* <label> Add picture</label>
+        <input type="file"  /> */}
 
-        <button className="pip-button" onClick={handlePipButtonClick}>Post Pip</button>
+        <button className="pip-button" onClick={handlePipButtonClick} disabled={!isValid}>Post Pip</button>
         <button className="pip-button" onClick={handlePipCancelClick}>Cancel</button>
     </div>
     </ReactModal>
