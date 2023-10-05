@@ -18,6 +18,7 @@ export default function PipForm ({isModalOpen, setIsModalOpen, setPips, pips}){
         setUsername(e.target.value)
     }
 
+
     // pipknap funktionalitet
     const handlePipButtonClick = () => {
         const newPip = new Pip(content, new Date(), username)
@@ -46,26 +47,23 @@ return (
 
     <ReactModal isOpen={isModalOpen} className="modal">
     <div className="form">
-        <label>username</label>
-        <input type="text" value={username} onChange={handlePipsUsernameChange} onBlur={() => setTouchedUsernamePip(true)} />
+        <label className="username_modal">Username</label>
+        <input type="text" value={username}  onChange={handlePipsUsernameChange} onBlur={() => setTouchedUsernamePip(true)} />
         {!isUsernameValid && touchedUsernamePip &&
          <div>
             Username cannot be empty. Please fill out the input field.
         </div>
         }
        
-        <label>Pip text</label>
+        <label className="content_modal">Pip text</label>
         <input type="text" value={content} onChange={handlePipsContentChange} onBlur={() => setTouchedContentPip(true)}/>
         {!isContentValid && touchedContentPip &&
         <div>
                 Content cannot be empty. Please fill out the input field.
         </div>
         }
-        {/* <label> Add picture</label>
-        <input type="file"  /> */}
-
-        <button className="pip-button" onClick={handlePipButtonClick} disabled={!isValid}>Post Pip</button>
-        <button className="pip-button" onClick={handlePipCancelClick}>Cancel</button>
+        <button className="pip-button-post" onClick={handlePipButtonClick} disabled={!isValid}>Post Pip</button>
+        <button className="pip-button-cancel" onClick={handlePipCancelClick}>Cancel</button>
     </div>
     </ReactModal>
 )};

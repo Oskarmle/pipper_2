@@ -5,3 +5,53 @@
   padding-left: 200px;
   margin-top: 50px;
 }
+
+.modal {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 200px;
+  background-color: white;
+  border-radius: 20px;
+  border: 2px solid grey;
+}
+
+.form {
+  padding: 100px;
+  margin: 0;
+}
+
+.username_modal,
+.content_modal {
+  padding: 0;
+  width: 200px;
+  padding-bottom: 5px;
+}
+
+.content_modal,
+.image_modal {
+  margin-top: 20px;
+}
+
+.pip-button-post,
+.pip-button-cancel {
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+}
+
+.pip-button-post {
+  background-color: #1d9bf0;
+  margin-top: 20px;
+}
+
+.pip-button-cancel {
+  margin-top: 5px;
+  background-color: gray;
+}
+
+.pip-button-post:disabled {
+  background-color: grey;
+  color: darkgrey;
+}
