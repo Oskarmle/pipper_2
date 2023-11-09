@@ -18,17 +18,42 @@ export default function PipForm ({isModalOpen, setIsModalOpen, setPips, pips}){
         setUsername(e.target.value)
     }
 
+    const postPips = async (newPip) => {
+        const tableName = "pipper";
+        const projectUrl = "https://gkavjglqqnalhjhbegaw.supabase.co"
+        const data = await fetch(projectUrl + '/rest/v1/' + tableName, {
+          method: "POST",
+          body: JSON.stringify(newPip),
+          headers: {
+            apiKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdrYXZqZ2xxcW5hbGhqaGJlZ2F3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTk1MjM5MDgsImV4cCI6MjAxNTA5OTkwOH0.Qb5Cqe6_ix37I0wlOWVTHraCCc-ln6OJ57P8iL0wiQw',
+            'Content-Type': 'application/json',
+            'Prefer': 'return=representation'
+          }
+        }).then(result => result.json())
+        .then(createdPips => {
+          const pipsFromSupabase = createdPips[0];
+          setPips([...pips, pipsFromSupabase]);
+      
+          console.log(createdPips);
+        })
+      }
+
+
 
     // pipknap funktionalitet
     const handlePipButtonClick = () => {
-        const newPip = new Pip(content, new Date(), username)
+        const newPip = new Pip(username, content)
         setPips([...pips, newPip])
         setIsModalOpen(false)
         setUsername('');  
         setContent('');
         setTouchedContentPip(false)
         setTouchedUsernamePip(false)
+
+        postPips(newPip)
+
     }
+        
 
     // lukker modal
     function handlePipCancelClick (){
